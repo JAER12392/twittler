@@ -34,13 +34,6 @@
         var $body = ('body .tweet'); // Body is the parent and .tweet is the child in this case.
         var index = 0;
 
-        var $shawn = ('body .shawn');
-        var $shark = ('body .shark');
-        var $marcus = ('body .marcus');
-        var $douglas = ('body .douglas');
-
-
-
         //function to load the tweet
         var loadTweet = function(user) {
             while (index <= streams.home.length - 1) {
@@ -54,6 +47,8 @@
 
         };
 
+
+
         var nextTweet = function() {
             loadTweet();
             setTimeout(nextTweet, Math.random() * 1500);
@@ -65,9 +60,9 @@
         var nextuserShawnTweet = function(user) {
             while (index <= streams.user.shawndrost.length - 1) {
                 var tweet = streams.user.shawndrost[index];
-                var $tweet = $('<div></div>');
+                var $tweet = $('<div class="shawn"></div>');
                 $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($shawn);
+                $tweet.prependTo($body);
                 index++;
 
             }
@@ -78,9 +73,9 @@
         var nextuserSharkTweet = function(user) {
             while (index <= streams.user.sharksforcheap.length - 1) {
                 var tweet = streams.user.sharksforcheap[index];
-                var $tweet = $('<div></div>');
+                var $tweet = $('<div class="shark"></div>');
                 $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($shark);
+                $tweet.prependTo($body);
                 index++;
 
             }
@@ -89,9 +84,9 @@
         var nextuserMarcusTweet = function(user) {
             while (index <= streams.user.mracus.length - 1) {
                 var tweet = streams.user.mracus[index];
-                var $tweet = $('<div></div>');
+                var $tweet = $('<div class="marcus"></div>');
                 $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($marcus);
+                $tweet.prependTo($body);
                 index++;
 
             }
@@ -101,33 +96,43 @@
         var nextuserDouglasTweet = function(user) {
             while (index <= streams.user.douglascalhoun.length - 1) {
                 var tweet = streams.user.douglascalhoun[index];
-                var $tweet = $('<div></div>');
+                var $tweet = $('<div class="douglas"></div>');
                 $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($douglas);
+                $tweet.prependTo($body);
                 index++;
 
             }
         };
 
-        $('#shawnB').on('click', function() {
+         
 
-          nextuserShawnTweet();
+        $('.btn-group #shawnB').on('click', function() {
+           
+          var show = nextuserShawnTweet();
+           $($body).hide();
+          $($body).show(show);
         
         });
 
 
-        $('#sharkB').on('click', function() {
-            nextuserSharkTweet();
+        $('.btn-group #sharkB').on('click', function() {
+            $($body).hide();
+            var show1 = nextuserSharkTweet();
+            $($body).show(show1);
         });
 
 
-        $('#marcusB').on('click', function() {
-            nextuserMarcusTweet();
+        $('.btn-group #marcusB').on('click', function() {
+            $($body).hide();
+            var show2 = extuserMarcusTweet();
+            $($body).show(show2);
         });
 
 
-        $('#douglasB').on('click', function() {
-            nextuserDouglasTweet();
+        $('.btn-group #douglasB').on('click', function() {
+            $($body).hide();
+            var show3 = nextuserDouglasTweet();
+            $($body).show(show3);
         });
 
 
