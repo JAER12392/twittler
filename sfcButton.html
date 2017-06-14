@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+</head>
+
+<body>
+    <p>
+    </p>
+    <script>
+    $(document).ready(function() {
+        var $body = $('body p');
+
+        var index = 0;
+
+        function sharksforcheapTweets() {
+
+            while (index <= streams.users.sharksforcheap.length - 1) {
+                var tweet = streams.users.sharksforcheap[index];
+                var $tweet = $('<div></div>');
+                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
+                $tweet.prependTo($body)
+                index++;
+            }
+        };
+        var sharksforcheapNextTweets = function() {
+            sharksforcheapTweets();
+            setTimeout(sharksforcheapNextTweets, Math.random() * 1500);
+        };
+        sharksforcheapNextTweets();
+    });
+    </script>
+</body>
+
+</html>

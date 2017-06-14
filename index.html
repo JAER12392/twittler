@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -15,130 +15,49 @@
     </div>
     <p class="tweet">
     </p>
-    <div class="shawn">
-    </div>
-    <div class="shark">
-    </div>
-    <div class="marcus">
-    </div>
-    <div class="douglas">
-    </div>
-    <div class="btn-group">
-        <button id="shawnB" type="button">shawndrost</button>
-        <button id="sharkB" type="button">sharksforcheap</button>
-        <button id="marcusB" type="button">mracus</button>
-        <button id="douglasB" type="button">douglascalhoun</button>
-    </div>
     <script>
     $(document).ready(function() {
-        var $body = ('body .tweet'); // Body is the parent and .tweet is the child in this case.
+        var $body = ('body .tweet');
         var index = 0;
+
+
 
         //function to load the tweet
         var loadTweet = function(user) {
             while (index <= streams.home.length - 1) {
                 var tweet = streams.home[index];
-                var $tweet = $('<div></div>'); // Creates a new Div element
+                var $tweet = $('<div></div>');
                 $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body); // 
+                $tweet.prependTo($body);
                 index++;
             }
 
 
         };
 
-
-
         var nextTweet = function() {
             loadTweet();
-            setTimeout(nextTweet, Math.random() * 1500);
+            setTimeout(nextTweet, Math.random() * 1000);
 
         };
 
         nextTweet();
 
-        var nextuserShawnTweet = function(user) {
-            while (index <= streams.user.shawndrost.length - 1) {
-                var tweet = streams.user.shawndrost[index];
-                var $tweet = $('<div class="shawn"></div>');
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body);
-                index++;
-
-            }
-
-
-        };
-
-        var nextuserSharkTweet = function(user) {
-            while (index <= streams.user.sharksforcheap.length - 1) {
-                var tweet = streams.user.sharksforcheap[index];
-                var $tweet = $('<div class="shark"></div>');
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body);
-                index++;
-
-            }
-        };
-
-        var nextuserMarcusTweet = function(user) {
-            while (index <= streams.user.mracus.length - 1) {
-                var tweet = streams.user.mracus[index];
-                var $tweet = $('<div class="marcus"></div>');
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body);
-                index++;
-
-            }
-        };
-
-
-        var nextuserDouglasTweet = function(user) {
-            while (index <= streams.user.douglascalhoun.length - 1) {
-                var tweet = streams.user.douglascalhoun[index];
-                var $tweet = $('<div class="douglas"></div>');
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body);
-                index++;
-
-            }
-        };
-
-         
-
-        $('.btn-group #shawnB').on('click', function() {
-           
-          var show = nextuserShawnTweet();
-           $($body).hide();
-          $($body).show(show);
-        
-        });
-
-
-        $('.btn-group #sharkB').on('click', function() {
-            $($body).hide();
-            var show1 = nextuserSharkTweet();
-            $($body).show(show1);
-        });
-
-
-        $('.btn-group #marcusB').on('click', function() {
-            $($body).hide();
-            var show2 = extuserMarcusTweet();
-            $($body).show(show2);
-        });
-
-
-        $('.btn-group #douglasB').on('click', function() {
-            $($body).hide();
-            var show3 = nextuserDouglasTweet();
-            $($body).show(show3);
-        });
-
-
-
     });
     </script>
-</body>
-
-</html>
+    <div class="btn-group">
+    <a href="sdButton.html">
+        <button id="tweetsd" type="button">shawndrost</button>
+    </a>
+    <a href="sfcButton.html">
+        <button id="tweetsfc" type="button">sharksforcheap</button>
+    </a>
+    <a href="mButton.html">
+        <button id="tweetm" type="button">mracus</button>
+    </a>
+    <a href="dcButton.html">
+        <button id="douglascalhoun" type="button">douglascalhoun</button>
+    </a>
+    </div>
+    </body>
+    </html>
