@@ -1,23 +1,4 @@
-.btn-group {
-  text-align: center;
-}
-
-.shawn {
-    float: right;
-    width: 300px;
-}
-
-.shark {
-    float: right;
-    width: 300px;
-}
-
-.marcus {
-    float: right;
-    width: 300px;
-}
-
-.douglas {
-    float: right;
-    width: 300px;
+.usertimeline {
+  float: right;
+  width: 45%;
 }
