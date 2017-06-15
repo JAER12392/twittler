@@ -1,8 +1,14 @@
+p{
+  text-align: center;
+}
 .btn-group {
   text-align: center;
 }
 
-.shawn {
-  float: right;
+body {
+  background-color: #00FFFF;
 }
 
+h1 {
+  text-align: center;
+}

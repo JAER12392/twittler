@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+    
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,6 +7,22 @@
     <script src="data_generator.js"></script>
     <link rel="stylesheet" type="text/css" href="twittler.css">
     <title> Twitter </title>
+    <div class="btn-group">
+        <a href="sdButton.html">
+            <button id="tweetsd" type="button">shawndrost</button>
+        </a>
+        <a href="sfcButton.html">
+            <button id="tweetsfc" type="button">sharksforcheap</button>
+        </a>
+        <a href="mButton.html">
+            <button id="tweetm" type="button">mracus</button>
+        </a>
+        <a href="dcButton.html">
+            <button id="douglascalhounM" type="button">douglascalhoun</button>
+        </a>
+        <script>
+        </script>
+    </div>
 </head>
 
 <body>
@@ -15,49 +32,93 @@
     </div>
     <p class="tweet">
     </p>
-    <script>
-    $(document).ready(function() {
-        var $body = ('body .tweet');
-        var index = 0;
+    <section class="tweets">    
+        <script>
+        $(document).ready(function() {
+            var $body = ('body .tweet');
+            var index = 0;
 
 
 
-        //function to load the tweet
-        var loadTweet = function(user) {
-            while (index <= streams.home.length - 1) {
-                var tweet = streams.home[index];
-                var $tweet = $('<div></div>');
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
-                $tweet.prependTo($body);
-                index++;
-            }
+            //function to load the tweet
+            var loadTweet = function(user) {
+                while (index <= streams.home.length - 1) {
+                    var tweet = streams.home[index];
+                    var $tweet = $('<div class="usertweet '+tweet.user+'"></div>');
+                    $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
+                    $tweet.prependTo($body);
+                    index++;
+                }
 
 
-        };
+            };
 
-        var nextTweet = function() {
-            loadTweet();
-            setTimeout(nextTweet, Math.random() * 1000);
+            var nextTweet = function() {
+                loadTweet();
+                setTimeout(nextTweet, 1500);
 
-        };
+            };
 
-        nextTweet();
+            nextTweet();
 
-    });
-    </script>
-    <div class="btn-group">
-    <a href="sdButton.html">
-        <button id="tweetsd" type="button">shawndrost</button>
-    </a>
-    <a href="sfcButton.html">
-        <button id="tweetsfc" type="button">sharksforcheap</button>
-    </a>
-    <a href="mButton.html">
-        <button id="tweetm" type="button">mracus</button>
-    </a>
-    <a href="dcButton.html">
-        <button id="douglascalhoun" type="button">douglascalhoun</button>
-    </a>
-    </div>
-    </body>
-    </html>
+
+
+
+
+        });
+
+        $('#tweetm').on('click', function(event) {
+            event.preventDefault()
+            // jquery selectors
+            $('.usertweet').each(function() {
+                if (! $(this).is('.mracus')) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+
+        $('#tweetsfc').on('click', function(event) {
+            event.preventDefault()
+            // jquery selectors
+            $('.usertweet').each(function() {
+                if (! $(this).is('.sharksforcheap')) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+
+        $('#tweetsd').on('click', function(event) {
+            event.preventDefault()
+            // jquery selectors
+            $('.usertweet').each(function() {
+                if (! $(this).is('.shawndrost')) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+
+        $('#douglascalhounM').on('click', function(event) {
+            event.preventDefault()
+            // jquery selectors
+            $('.usertweet').each(function() {
+                if (! $(this).is('.douglascalhoun')) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+        </script>
+</body>
+
+</html>
